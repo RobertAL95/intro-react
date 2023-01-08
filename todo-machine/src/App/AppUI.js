@@ -4,16 +4,18 @@ import { TodoCounter } from '../TodoCounter';
 import { TodoSearch } from '../TodoSearch';
 import { TodoList } from '../TodoList';
 import { TodoItem } from '../TodoItem';
-import { CreateTodoButton } from '../CreateTodoButton';
+import { CreateTodoButton } from '../CreateTodoButton/index';
+import { Modal } from '../Modal';
 
-const AppUI = () => {
-  // Desesctructuramos los valores de nuestro contexto
+function AppUI() {
   const {
     error,
     loading,
     searchedTodos,
     completeTodo,
     deleteTodo,
+    openModal,
+    setOpenModal,
   } = React.useContext(TodoContext);
   
   return (
@@ -37,8 +39,15 @@ const AppUI = () => {
         ))}
       </TodoList>
 
+      {!!openModal && (
+        <Modal>
+          <p>teletransportacion</p>
+        </Modal>
+      )}
 
-      <CreateTodoButton />
+      <CreateTodoButton
+        setOpenModal={setOpenModal}
+      />
     </React.Fragment>
   );
 }

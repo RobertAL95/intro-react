@@ -8,4 +8,9 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
+ReactDOM.createPortal(
+  <App/>,
+  document.getElementById('modal')
+)
+
 
